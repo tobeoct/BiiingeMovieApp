@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="navbar" class="row bg-red">
+  <div class="col-md-2 text-center">
+    <img style="max-width:100px" src="../../assets/Logo.png" />
+  </div>
+  <div class="col-md-9 text-center">
+    <input type="text" placeholder="SEARCH HERE ..." id="nav-search" />
+  </div>
+  <div class="col-md-1 text-center">
+    <div id="profile-image"></div>
+  </div>
+</div>
+<side-navbar
+  [navLinks]="navLinks1"
+  (onLinkClick)="handleLinkClicked()"
+></side-navbar>

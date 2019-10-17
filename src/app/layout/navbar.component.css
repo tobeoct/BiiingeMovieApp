@@ -1,0 +1,29 @@
+#navbar {
+  height: 50px;
+  width: 100% !important;
+  margin: 0;
+}
+
+#nav-search {
+  background: rgba(255, 255, 255, 0.3);
+  width: 100%;
+  margin: auto;
+  border-radius: 30px;
+  padding: 7.5px;
+  padding-left: 40px;
+  border: 0;
+  margin-top: 7.5px;
+}
+#nav-search:focus {
+  outline: none;
+}
+#profile-image {
+  border-radius: 50px;
+  width: 35px;
+  height: 35px;
+  background: url("../../assets/profile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 7.5px;
+}

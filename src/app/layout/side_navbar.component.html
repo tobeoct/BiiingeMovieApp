@@ -1,0 +1,35 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="side-navbar" class="bg-grey col-md-2">
+  <div style="padding:0 !important" *ngFor="let link of navLinks">
+    <div
+      *ngIf="link.isActive != true"
+      class=" nav-link"
+      style="padding:0 !important"
+      (click)="handleOnClick()"
+    >
+      <div class="nav-content">
+        <div class="row strip">
+          <div class="col-md-10 text-center">
+            {{ link.title }}
+          </div>
+          <div class="col-md-2">></div>
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="link.isActive == true"
+      class="nav-link"
+      style="padding:0 !important"
+      (click)="handleOnClick()"
+    >
+      <div class="nav-content nav-active">
+        <div class="row strip">
+          <div class="col-md-10 text-center">
+            {{ link.title }}
+          </div>
+          <div class="col-md-2">></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

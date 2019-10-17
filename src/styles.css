@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #292f3d;
+  font-size: 14px;
+  font-family: "Barlow", sans-serif !important;
+}
+img {
+  width: 100%;
+}
+.text-center {
+  text-align: center !important;
+}
+.bg-red {
+  background: #f30c4e !important;
+}
+.bg-lighter-grey {
+  background: #292f3d !important;
+}
+.bg-grey {
+  background: #1b2132 !important;
+}
+.bg-yellow {
+  background: #f2c94c !important;
+}
