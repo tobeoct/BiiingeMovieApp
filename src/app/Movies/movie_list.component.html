@@ -1,0 +1,12 @@
+<div class="row max-width strip">
+    <div class="col-md-2"></div>
+<div id="main-content" class="col-md-10 col-sm-10 col-xs-12 strip ">
+    <app-title-bar></app-title-bar>
+    <div class="row" id="movie-list">
+        <div class="col-md-2 col-sm-4 col-xs-6 movie-card"  *ngFor="let movie of movies">
+        <app-movie-card [movie]="movie" (onWatch)="handleOnWatch($event)"></app-movie-card>
+        </div>
+    </div>
+    
+</div>
+</div>

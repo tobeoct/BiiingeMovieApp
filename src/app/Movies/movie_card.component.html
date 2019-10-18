@@ -1,0 +1,20 @@
+<!-- <div class="row" id="movie-list">
+    <div class="col-md-3 movie-card"  *ngFor="let movie of movies"> -->
+        <div *ngIf="movie!=null&&movie!=undefined">
+        <div class="image" style="text-align: center;"   [ngStyle]="{ 'background-image': 'url(' + movie.imageUrl + ')'}"></div>
+        <div class="inline" style="margin-top:10px">
+            <div class="title"><b>{{movie.title}}</b></div><!--
+            --><div class="year">{{movie.year}}</div>
+        </div>
+        <span class="genre" *ngFor="let genre of movie.genres" >
+            <span>{{genre}}</span><span ><b> | </b></span>
+        </span>
+        <div>
+            <button class="button button-default pull-left" (click)="handleOnWatch()">WATCH</button>
+            <button class="button button-rounded button-yellow pull-right"></button>
+        </div>
+    </div>
+    <!-- </div>
+</div> -->
+        
+    
