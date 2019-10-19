@@ -2,6 +2,8 @@
   height: 50px;
   width: 100% !important;
   margin: 0;
+  z-index: 5;
+  position: fixed;
 }
 
 #nav-search {
@@ -25,6 +27,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  margin:auto;
+  margin: auto;
   margin-top: 7.5px;
 }

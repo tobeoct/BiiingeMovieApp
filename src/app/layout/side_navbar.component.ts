@@ -5,14 +5,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './side_navbar.component.html',
   styles: [
     `
-      #side-navbar {
-        height: 95vh;
-        top: 50px;
-        position: fixed;
-        color: #ffffff40;
-        padding: 0;
-        padding-top: 1%;
-      }
       .nav-link {
         width: 100%;
         padding: 0;
@@ -40,9 +32,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   ]
 })
 export class SideNavBarComponent {
-   navLinks: any;
-  @Output() onLinkClick : EventEmitter<any>; 
-  constructor(){
+  navLinks: any;
+  @Output() onLinkClick: EventEmitter<any>;
+  constructor() {
     this.onLinkClick = new EventEmitter();
     this.navLinks = [
       { title: 'For You', url: '/for-you', isActive: true },
@@ -52,15 +44,13 @@ export class SideNavBarComponent {
       { title: 'Coming Soon', url: '/coming-soon' }
     ];
   }
-  handleOnClick = (data) => {
-   this.navLinks.map(link=>{
-    link.isActive =false;
-    if(link.title===data)
-     {
-       link.isActive = true;
-     }
-     return link;
-   });
-  
+  handleOnClick = data => {
+    this.navLinks.map(link => {
+      link.isActive = false;
+      if (link.title === data) {
+        link.isActive = true;
+      }
+      return link;
+    });
   }
 }

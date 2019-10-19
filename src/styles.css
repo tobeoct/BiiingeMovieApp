@@ -6,17 +6,21 @@ body {
   font-family: "Barlow", sans-serif !important;
   overflow: hidden;
 }
+a,
+a:focus,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
 img {
   width: 100%;
 }
-.strip
-{
-  padding:0 !important;
-  margin:0 !important;
+.strip {
+  padding: 0 !important;
+  margin: 0 !important;
 }
-.max-width
-{
-  width:100% !important;
+.max-width {
+  width: 100% !important;
 }
 .text-center {
   text-align: center !important;
@@ -33,35 +37,102 @@ img {
 .bg-yellow {
   background: #f2c94c !important;
 }
-.inline div{
+.color-red {
+  color: #f30c4e !important;
+}
+.inline div {
   display: inline-block;
   vertical-align: bottom;
 }
-.button
-{
-  border:0px;
+.button {
+  border: 0px;
   background: transparent;
   color: white;
-  margin-top:20px;
+  margin-top: 20px;
   font-size: 0.8em;
-  padding:7.5px 10px 7.5px 10px ;
+  padding: 7.5px 10px 7.5px 10px;
   border-radius: 5px;
 }
-.button-default
-{
+.button-default {
   background: #f30c4e;
-  min-width:75%;
+  min-width: 75%;
 }
-.button-rounded
-{
-  width:35px;
-  height:35px;
-  padding:0;
+.button-rounded {
+  width: 35px;
+  height: 35px;
+  padding: 0;
   border-radius: 40px;
-  
 }
 
-.button-yellow
-{
-  border:3px solid #f2c94c;
+.button-yellow {
+  border: 3px solid #f2c94c;
+}
+#side-navbar {
+  height: 95vh;
+  top: 50px;
+  position: fixed;
+  color: #ffffff40;
+  padding: 0;
+  padding-top: 1%;
+}
+.rating {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background: #f2c94c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+}
+.favourite {
+  cursor: pointer;
+}
+.favourite-round {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border-radius: 40px;
+  border: 3px solid #f2c94c;
+}
+.underline .title-underlined {
+  position: relative;
+}
+.underline .title-underlined:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 10%;
+  border-radius: 3px;
+  margin-top: 5px;
+  background: #f2c94c;
+  transition: width 0.4s ease-in-out;
+}
+.underline .title-underlined:hover:after {
+  width: 30%;
+}
+.gradient-overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #000000 100%);
+  opacity: 0.8;
+}
+
+.overflow-scroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-left: 10px;
+}
+.overflow-scroll::-webkit-scrollbar {
+  display: none;
 }

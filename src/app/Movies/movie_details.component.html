@@ -1,29 +1,107 @@
-
-<div class="row strip max-width" id="movie-details">
-<div class="col-md-8">
+<div
+  class="row max-width strip"
+  id="movie-details"
+  [ngStyle]="{
+    'background-image': 'url(' + movieDetails.placeholderScene + ')'
+  }"
+>
+  <div class="gradient-overlay"></div>
+  <div
+    class="text-center"
+    style="position: absolute; top:35%; margin:auto; left:45%;"
+  >
+    <div><b>2hr 30mins</b></div>
+    <div
+      id="play-button"
+      style="width:70px; height:70px; background: #FFFFFF30; border-radius:70px;margin:auto; margin-top:10px;"
+    ></div>
+  </div>
+  <div class=" " id="description" style=" padding: 0 5% 0 2.5%">
     <div class="row">
-        <div class="col-md-6">
-                <div id="rating">7.8</div>
-                <div style="font-size:0.8em;">ACTION <b> | </b> ADVENTURE </div>
-                <div id="title" ><h1 style="margin-top:0 !important; padding-top:0 !important;"><b>Blade</b></h1></div>
-                <div style="font-size:0.8em;">2019 <b> | </b> English <b>| US</b> </div>
-                <div class="director"><span><b>Director</b></span><span style="margin-left:10px">Micheal Bay</span></div>
-        </div>
-        <div class="col-md-6">
-           
+      <div class="col-md-7">
+        <div class="row">
+          <div class="col-md-6">
+            <div style="position: relative;" class="max-width">
+              <div class="rating">
+                <div>{{ movieDetails.rating }}</div>
+              </div>
+              <div style="position: absolute; top:25%; left:50px;">
+                <p>RATING</p>
+              </div>
             </div>
+            <div
+              style="font-size:0.8em; margin-top:10px;  word-spacing: 0.2em;"
+            >
+              <span class="genre" *ngFor="let genre of movieDetails.genres">
+                <span><b> | </b></span><span>{{ genre }}</span>
+              </span>
+            </div>
+            <div id="title" class="underline" style="margin: 10px 0;">
+              <h1
+                style="margin-top:0 !important; padding-top:0 !important;"
+                class="title-underlined"
+              >
+                <b>{{ movieDetails.title }}</b>
+              </h1>
+            </div>
+            <div style="font-size:0.8em; word-spacing: 0.1em;">
+              2019 <b> | </b> English <b>| US</b>
+            </div>
+            <div class="director" style="margin-top:10px; word-spacing: 0.1em;">
+              <span class="color-red"><b>DIRECTOR</b></span
+              ><span style="margin-left:10px">{{ movieDetails.director }}</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div id="starring" style="margin-top:20%;">
+              <div class="color-red"><b>STARRING</b></div>
+              <div>
+                {{ movieDetails.starring }}
+              </div>
+            </div>
+            <div id="awards" class="inline" style="margin-top:20px;">
+              <div class="color-red"><b>AWARDS</b></div>
+              <div style="margin-left:10px">
+                {{ movieDetails.awards }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-top:20px">
+          <div class="col-md-12">
+            <p>
+              {{ movieDetails.plot }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="row">
+          <div class="inline favourite">
+            <div class="favourite-round"></div>
+            <div style="margin-left:10px;"><p>ADD TO FAVOURITE</p></div>
+          </div>
+        </div>
+        <div class="row" style=" margin-top: 30px;">
+          <div><b>OTHERS YOU MAY LIKE</b></div>
+          <div id="related-list" class="overflow-scroll">
+            <div
+              class="related-item"
+              *ngFor="let detail of movieDetails.related"
+            >
+              <div
+                id="image"
+                [ngStyle]="{
+                  'background-image': 'url(' + detail.imageUrl + ')'
+                }"
+              ></div>
+              <div id="title" class="text-center">
+                <p>{{ detail.title }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="row">
-            <p>Current implementation: Financial date, Agent phone number, Agent name Agent account number Association ID Association Name, and member ID
-                    Proposed Implementation: Transaction date, Date initiated Aggregator, Association name. Association ID, Member ID, Agent name, Agent Account number.
-                    </p>
-    </div>
-    
+  </div>
 </div>
-<div class="col-md-4">
-
-</div>
-<div></div>
-</div>
-
-
