@@ -45,6 +45,18 @@ import { ActivatedRoute } from '@angular/router';
       .related-item #title {
         margin-top: 10px;
       }
+      #play-button {
+        cursor: pointer;
+        width: 70px;
+        height: 70px;
+        background: #ffffff30;
+        border-radius: 70px;
+        margin: auto;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     `
   ]
   // , styleUrls: ['./movie_streaming_app.component.css']
@@ -64,7 +76,14 @@ export class MovieDetailsComponent {
       this.route.snapshot.params['id']
     );
   }
+  addToFavourites(data) {
+    // this.onWatch.emit(data + ' added to favourites');
+    this.movieService.addToFavourite(data);
+  }
   handleOnLinkClicked(data) {
     alert(data);
+  }
+  playVideo(id: number) {
+    this.movieService.playVideo(id);
   }
 }

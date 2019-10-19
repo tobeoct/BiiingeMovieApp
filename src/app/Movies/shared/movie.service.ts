@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'src/app/common/toastr.service';
 @Injectable()
 export class MovieService {
-  constructor(private toastr:ToastrService)
-  {
-  }
+  constructor(private toastr: ToastrService) {}
   getMovies = () => {
     return MOVIES;
   }
@@ -14,21 +12,33 @@ export class MovieService {
     console.log(movie);
     return movie;
   }
-  addToFavourite=(id:number)=>
-  {
-    
-    MOVIES.map(movie=>{
-      if(movie.id===id){
-        movie.isFavourite= !movie.isFavourite;
-       if(movie.isFavourite){ this.toastr.success(movie.title + " has been added to your Favourites");
-      }else
-      {
-        this.toastr.info(movie.title + " has been removed from your Favourites");
-      }
+  addToFavourite = (id: number) => {
+    MOVIES.map(movie => {
+      if (movie.id === id) {
+        movie.isFavourite = !movie.isFavourite;
+        if (movie.isFavourite) {
+          this.toastr.success(
+            movie.title + ' has been added to your Favourites'
+          );
+        } else {
+          this.toastr.info(
+            movie.title + ' has been removed from your Favourites'
+          );
+        }
       }
       return movie;
-    })
-  
+    });
+  }
+  playVideo = (id: number) => {
+    MOVIES.map(movie => {
+      if (movie.id === id) {
+        movie.isPlayingVideo = !movie.isPlayingVideo;
+        if (movie.isPlayingVideo) {
+          this.toastr.success(movie.title + ' playing');
+        }
+      }
+      return movie;
+    });
   }
 }
 const MOVIES = [
@@ -43,36 +53,36 @@ const MOVIES = [
     plot:
       'Current implementation: Financial date, Agent phone number, Agent name Agent account number Association ID Association Name, and member ID Proposed Implementation: Transaction date, Date initiated Aggregator, Association name. Association ID, Member ID, Agent name, Agent Account number.',
     time: '2hr 30mins',
-    placeholderScene: '../../assets/9.jpg',
+    placeholderScene: '../../assets/scenes/5.jpg',
     video: '../../assets/video/1.mp4',
     rating: 8.5,
     genres: ['ADVENTURE', 'ACTION', 'ROMANCE'],
     imageUrl: '../../assets/1.jpg',
     isFavourite: true,
-
+    isPlayingVideo: false,
     related: [
       {
-        id: 1,
+        id: 3,
         imageUrl: '../../assets/3.jpg',
         title: 'Greta'
       },
       {
-        id: 2,
+        id: 4,
         imageUrl: '../../assets/4.jpg',
         title: 'Shining'
       },
       {
-        id: 2,
+        id: 5,
         imageUrl: '../../assets/5.jpg',
         title: 'Dunkirk'
       },
       {
-        id: 2,
+        id: 6,
         imageUrl: '../../assets/6.jpg',
         title: 'Us'
       },
       {
-        id: 2,
+        id: 5,
         imageUrl: '../../assets/8.jpeg',
         title: 'Venom'
       },
@@ -94,36 +104,36 @@ const MOVIES = [
     plot:
       'Current implementation: Financial date, Agent phone number, Agent name Agent account number Association ID Association Name, and member ID Proposed Implementation: Transaction date, Date initiated Aggregator, Association name. Association ID, Member ID, Agent name, Agent Account number.',
     time: '2hr 30mins',
-    placeholderScene: '../../assets/9.jpg',
+    placeholderScene: '../../assets/scenes/4.jpg',
     video: '../../assets/video/1.mp4',
     rating: 8.0,
     genres: ['ADVENTURE', 'ACTION', 'ROMANCE'],
     imageUrl: '../../assets/2.jpg',
     isFavourite: false,
-
+    isPlayingVideo: false,
     related: [
       {
-        id: 1,
+        id: 3,
         imageUrl: '../../assets/3.jpg',
         title: 'Greta'
       },
       {
-        id: 2,
+        id: 4,
         imageUrl: '../../assets/4.jpg',
         title: 'Shining'
       },
       {
-        id: 2,
+        id: 5,
         imageUrl: '../../assets/5.jpg',
         title: 'Dunkirk'
       },
       {
-        id: 2,
+        id: 6,
         imageUrl: '../../assets/6.jpg',
         title: 'Us'
       },
       {
-        id: 2,
+        id: 5,
         imageUrl: '../../assets/8.jpeg',
         title: 'Venom'
       },
@@ -146,35 +156,35 @@ const MOVIES = [
     plot:
       'Current implementation: Financial date, Agent phone number, Agent name Agent account number Association ID Association Name, and member ID Proposed Implementation: Transaction date, Date initiated Aggregator, Association name. Association ID, Member ID, Agent name, Agent Account number.',
     time: '2hr 30mins',
-    placeholderScene: '../../assets/9.jpg',
+    placeholderScene: '../../assets/scenes/9.jpg',
     video: '../../assets/video/1.mp4',
     genres: ['ADVENTURE', 'ACTION', 'ROMANCE'],
     imageUrl: '../../assets/3.jpg',
     isFavourite: false,
-
+    isPlayingVideo: false,
     related: [
       {
-        id: 1,
+        id: 3,
         imageUrl: '../../assets/3.jpg',
         title: 'Greta'
       },
       {
-        id: 2,
+        id: 4,
         imageUrl: '../../assets/4.jpg',
         title: 'Shining'
       },
       {
-        id: 2,
+        id: 5,
         imageUrl: '../../assets/5.jpg',
         title: 'Dunkirk'
       },
       {
-        id: 2,
+        id: 6,
         imageUrl: '../../assets/6.jpg',
         title: 'Us'
       },
       {
-        id: 2,
+        id: 5,
         imageUrl: '../../assets/8.jpeg',
         title: 'Venom'
       },
@@ -197,35 +207,35 @@ const MOVIES = [
     plot:
       'Current implementation: Financial date, Agent phone number, Agent name Agent account number Association ID Association Name, and member ID Proposed Implementation: Transaction date, Date initiated Aggregator, Association name. Association ID, Member ID, Agent name, Agent Account number.',
     time: '2hr 30mins',
-    placeholderScene: '../../assets/9.jpg',
+    placeholderScene: '../../assets/scenes/1.jpg',
     video: '../../assets/video/1.mp4',
     genres: ['ADVENTURE', 'ACTION', 'ROMANCE'],
     imageUrl: '../../assets/4.jpg',
     isFavourite: false,
-
+    isPlayingVideo: false,
     related: [
       {
-        id: 1,
+        id: 3,
         imageUrl: '../../assets/3.jpg',
         title: 'Greta'
       },
       {
-        id: 2,
+        id: 4,
         imageUrl: '../../assets/4.jpg',
         title: 'Shining'
       },
       {
-        id: 2,
+        id: 5,
         imageUrl: '../../assets/5.jpg',
         title: 'Dunkirk'
       },
       {
-        id: 2,
+        id: 6,
         imageUrl: '../../assets/6.jpg',
         title: 'Us'
       },
       {
-        id: 2,
+        id: 5,
         imageUrl: '../../assets/8.jpeg',
         title: 'Venom'
       },
@@ -247,36 +257,36 @@ const MOVIES = [
     plot:
       'Current implementation: Financial date, Agent phone number, Agent name Agent account number Association ID Association Name, and member ID Proposed Implementation: Transaction date, Date initiated Aggregator, Association name. Association ID, Member ID, Agent name, Agent Account number.',
     time: '2hr 30mins',
-    placeholderScene: '../../assets/9.jpg',
+    placeholderScene: '../../assets/scenes/2.jpg',
     video: '../../assets/video/1.mp4',
     rating: 6.5,
     genres: ['ADVENTURE', 'ACTION', 'ROMANCE'],
     imageUrl: '../../assets/5.jpg',
     isFavourite: false,
-
+    isPlayingVideo: false,
     related: [
       {
-        id: 1,
+        id: 3,
         imageUrl: '../../assets/3.jpg',
         title: 'Greta'
       },
       {
-        id: 2,
+        id: 4,
         imageUrl: '../../assets/4.jpg',
         title: 'Shining'
       },
       {
-        id: 2,
+        id: 5,
         imageUrl: '../../assets/5.jpg',
         title: 'Dunkirk'
       },
       {
-        id: 2,
+        id: 6,
         imageUrl: '../../assets/6.jpg',
         title: 'Us'
       },
       {
-        id: 2,
+        id: 5,
         imageUrl: '../../assets/8.jpeg',
         title: 'Venom'
       },
@@ -299,35 +309,35 @@ const MOVIES = [
     plot:
       'Current implementation: Financial date, Agent phone number, Agent name Agent account number Association ID Association Name, and member ID Proposed Implementation: Transaction date, Date initiated Aggregator, Association name. Association ID, Member ID, Agent name, Agent Account number.',
     time: '2hr 30mins',
-    placeholderScene: '../../assets/9.jpg',
+    placeholderScene: '../../assets/scenes/7.jpg',
     video: '../../assets/video/1.mp4',
     genres: ['ADVENTURE', 'ACTION', 'ROMANCE'],
     imageUrl: '../../assets/6.jpg',
     isFavourite: true,
-
+    isPlayingVideo: false,
     related: [
       {
-        id: 1,
+        id: 3,
         imageUrl: '../../assets/3.jpg',
         title: 'Greta'
       },
       {
-        id: 2,
+        id: 4,
         imageUrl: '../../assets/4.jpg',
         title: 'Shining'
       },
       {
-        id: 2,
+        id: 5,
         imageUrl: '../../assets/5.jpg',
         title: 'Dunkirk'
       },
       {
-        id: 2,
+        id: 6,
         imageUrl: '../../assets/6.jpg',
         title: 'Us'
       },
       {
-        id: 2,
+        id: 5,
         imageUrl: '../../assets/8.jpeg',
         title: 'Venom'
       },

@@ -28,13 +28,14 @@
       *ngIf="movie.isFavourite"
       (click)="addToFavourites(movie.id)"
     >
-  <i class="fa fa-heart"></i>
-  </button>
-  <button
+      <i class="fa fa-heart"></i>
+    </button>
+    <button
       class="button button-rounded  pull-right"
       (click)="addToFavourites(movie.id)"
       *ngIf="!movie.isFavourite"
     >
-    <i class="fa fa-heart"></i>
-  </button>
+      <i class="fa fa-heart"></i>
+    </button>
+  </div>
 </div>
