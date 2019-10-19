@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../Movies/shared/movie.service';
 import { ToastrService } from '../common/toastr.service';
-import { AuthService } from '../common/auth.service';
-import { Router } from '@angular/router';
 @Component({
-  templateUrl: './movie_list.component.html',
+  templateUrl: './login.component.html',
   styles: [
     `
       #movie-list {
@@ -27,22 +25,15 @@ import { Router } from '@angular/router';
   ]
   // , styleUrls: ['./movie_streaming_app.component.css']
 })
-export class MovieListComponent implements OnInit {
+export class LoginComponent implements OnInit {
   movies: any;
   constructor(
     private movieService: MovieService,
-    private toastr: ToastrService,
-    private authService: AuthService,
-    private router: Router
+    private toastr: ToastrService
   ) {
     // this.movieService = _movieService;
   }
-  ngOnInit() {
-    if (!this.authService.isAuthenticated()) {
-      this.router.navigate(['login']);
-    }
-    this.movies = this.movieService.getMovies();
-  }
+  ngOnInit() {}
 
   handleOnWatch(data) {
     // alert(data);
