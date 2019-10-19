@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { MovieService } from './shared/movie.service';
 
 @Component({
   selector: 'app-movie-card',
@@ -44,14 +45,15 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class MovieCardComponent {
   @Input() movie: any;
   @Output() onWatch: EventEmitter<any>;
-  constructor() {
+  constructor(private movieService:MovieService) {
     this.onWatch = new EventEmitter<any>();
     // this.movie = new Object();
   }
   ngOnChanges() {
     // console.log(this.movie == null ? 'null' : this.movie.genres);
   }
-  handleOnWatch(data) {
-    this.onWatch.emit(data + ' added to favourites');
+  addToFavourites(data) {
+    //this.onWatch.emit(data + ' added to favourites');
+   this.movieService.addToFavourite(data);
   }
 }

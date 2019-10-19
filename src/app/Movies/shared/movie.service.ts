@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'src/app/common/toastr.service';
 @Injectable()
 export class MovieService {
+  constructor(private toastr:ToastrService)
+  {
+  }
   getMovies = () => {
     return MOVIES;
   }
@@ -9,6 +13,22 @@ export class MovieService {
     console.log('GOTTEN MOVIE');
     console.log(movie);
     return movie;
+  }
+  addToFavourite=(id:number)=>
+  {
+    
+    MOVIES.map(movie=>{
+      if(movie.id===id){
+        movie.isFavourite= !movie.isFavourite;
+       if(movie.isFavourite){ this.toastr.success(movie.title + " has been added to your Favourites");
+      }else
+      {
+        this.toastr.info(movie.title + " has been removed from your Favourites");
+      }
+      }
+      return movie;
+    })
+  
   }
 }
 const MOVIES = [
@@ -79,7 +99,7 @@ const MOVIES = [
     rating: 8.0,
     genres: ['ADVENTURE', 'ACTION', 'ROMANCE'],
     imageUrl: '../../assets/2.jpg',
-    isFavourite: true,
+    isFavourite: false,
 
     related: [
       {
@@ -130,7 +150,7 @@ const MOVIES = [
     video: '../../assets/video/1.mp4',
     genres: ['ADVENTURE', 'ACTION', 'ROMANCE'],
     imageUrl: '../../assets/3.jpg',
-    isFavourite: true,
+    isFavourite: false,
 
     related: [
       {
@@ -181,7 +201,7 @@ const MOVIES = [
     video: '../../assets/video/1.mp4',
     genres: ['ADVENTURE', 'ACTION', 'ROMANCE'],
     imageUrl: '../../assets/4.jpg',
-    isFavourite: true,
+    isFavourite: false,
 
     related: [
       {
@@ -232,7 +252,7 @@ const MOVIES = [
     rating: 6.5,
     genres: ['ADVENTURE', 'ACTION', 'ROMANCE'],
     imageUrl: '../../assets/5.jpg',
-    isFavourite: true,
+    isFavourite: false,
 
     related: [
       {
