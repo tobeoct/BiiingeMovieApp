@@ -7,6 +7,14 @@
   }"
 >
   <div class="gradient-overlay"></div>
+  <a href="/movies/">
+    <div
+      style="position: absolute; top:10%; left:3%; z-index:5; cursor: pointer;"
+    >
+      <span><i class="fa fa-arrow-left"></i></span
+      ><span style="margin-left: 10px;">Back</span>
+    </div>
+  </a>
   <div
     class="text-center"
     style="position: absolute; top:35%; margin:auto; left:45%;"
@@ -132,13 +140,14 @@
   id="movie-details"
   *ngIf="movieDetails.isPlayingVideo"
 >
-  <div
-    style="position: absolute; top:10%; left:3%; z-index:4; cursor: pointer;"
-    [routerLink]="['/movies', movieDetails.id]"
-  >
-    <span><i class="fa fa-arrow-left"></i></span
-    ><span style="margin-left: 10px;">Back</span>
-  </div>
+  <a href="/movies/{{ movieDetails.id }}">
+    <div
+      style="position: absolute; top:10%; left:3%; z-index:5; cursor: pointer;"
+    >
+      <span><i class="fa fa-arrow-left"></i></span
+      ><span style="margin-left: 10px;">Back</span>
+    </div>
+  </a>
   <video
     class="max-width"
     style="height:100vh; margin-top:0px;"

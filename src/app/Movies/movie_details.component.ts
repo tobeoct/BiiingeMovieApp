@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MovieService } from '../Movies/shared/movie.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../common/auth.service';
 @Component({
   templateUrl: './movie_details.component.html',
   styles: [
@@ -67,11 +68,16 @@ export class MovieDetailsComponent {
   movieDetails: any;
   constructor(
     private movieService: MovieService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService,
+    private router: Router
   ) {
     // this.movieService = _movieService;
   }
   ngOnInit() {
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['login']);
+    }
     this.movieDetails = this.movieService.getMovie(
       this.route.snapshot.params['id']
     );

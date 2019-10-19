@@ -12,6 +12,9 @@ import { MovieDetailsComponent } from './Movies/movie_details.component';
 import { MovieService } from './Movies/shared/movie.service';
 import { ToastrService } from './common/toastr.service';
 import { appRoutes } from '../routes';
+import { LoginComponent } from './User/logincomponent';
+import { AuthService } from './common/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,11 @@ import { appRoutes } from '../routes';
     MovieListComponent,
     TitleBarComponent,
     MovieCardComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    LoginComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
-  providers: [MovieService, ToastrService],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), HttpClientModule],
+  providers: [MovieService, ToastrService, AuthService],
   bootstrap: [
     MovieStreamingAppComponent,
     NavBarComponent,
@@ -32,7 +36,8 @@ import { appRoutes } from '../routes';
     MovieListComponent,
     TitleBarComponent,
     MovieCardComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    LoginComponent
   ]
 })
 export class AppModule {}
