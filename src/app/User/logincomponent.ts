@@ -61,7 +61,8 @@ login=(formValues)=>{
   this.authService.loginUser(formValues.userName,formValues.password);
   if(this.authService.isAuthenticated())
   {
-    window.location.href='/movies';
+    //window.location.href='/movies/home';
+    this.router.navigate(['/movies/home']);
   }
 }
   handleOnWatch(data) {
