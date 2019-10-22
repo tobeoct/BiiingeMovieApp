@@ -4,7 +4,7 @@
     <a href="/"><img style="max-width:100px" src="../../assets/Logo.png"/></a>
   </div>
   <div class="col-md-9 text-center">
-    <input type="text" (keyup)="search($event)"  placeholder="SEARCH HERE ..." id="nav-search" />
+    <input type="text" (keyup)="search($event)"  placeholder="SEARCH HERE ..." id="nav-search"  *ngIf="showSearch"/>
   </div>
   <div class="col-md-1 strip text-center bg-red-d" style="height: 100%;" *ngIf="!isAuthenticated">
     <div class="inline" style="padding-top: 4%;">

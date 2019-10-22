@@ -21,7 +21,7 @@ import { Router, ActivatedRoute } from '@angular/router';
         transition: background 0.3 ease-in, color 0.3s ease-in;
       }
       .nav-link:hover .nav-content {
-        color: #ffffff60;
+        color: #ffffff80;
         cursor: pointer;
       }
       .nav-active {
