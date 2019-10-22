@@ -5,6 +5,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Site Url
 www.biiingemovies.netlify.com
 
+# Run
+Clone Repositories
+Run npm install to install all dependencies
+Run firebase init functions
+Run npm start
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
