@@ -31,3 +31,11 @@
   margin-top: 7.5px;
   cursor: pointer;
 }
+
+@media all and (max-width: 667px)
+  {
+#nav-search
+{
+  display: none;
+}
+}

@@ -1,9 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div id="navbar" class="row strip bg-red" (click)="handleLinkClicked()">
-  <div class="col-md-2 text-center bg-red-d" style="height: 100%;">
+  <div class="col-md-2 col-sm-3 col-xs-4 text-center bg-red-d" style="height: 100%;">
     <a href="/"><img style="max-width:100px" src="../../assets/Logo.png"/></a>
   </div>
-  <div class="col-md-9 text-center">
+  <div class="col-md-9 col-sm-7 col-xs-4 text-center">
     <input type="text" (keyup)="search($event)"  placeholder="SEARCH HERE ..." id="nav-search"  *ngIf="showSearch"/>
   </div>
   <div class="col-md-1 strip text-center bg-red-d" style="height: 100%;" *ngIf="!isAuthenticated">
@@ -12,7 +12,7 @@
       <div id="profile-image" [routerLink]="['/login']"></div>
     </div>
   </div>
-  <div class="col-md-1 strip text-center bg-red-d" style="height: 100%;" *ngIf="isAuthenticated">
+  <div class="col-md-1 col-sm-2 col-xs-4 strip text-center bg-red-d" style="height: 100%;" *ngIf="isAuthenticated">
       <div class="inline" style="padding-top: 4%;">
           <div style="font-size:0.9em; margin-right: 7.5px;">Hello, {{user.username}}</div>
         <div id="profile-image" [routerLink]="['/logout']"  [ngStyle]="{

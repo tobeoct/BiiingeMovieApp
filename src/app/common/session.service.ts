@@ -4,10 +4,11 @@ import {Injectable} from '@angular/core';
 export class SessionService  {
     constructor(){
         let sessionTime = this.getSession("session-time");
-        const duration = 60*60*10;//10 days
+        const duration = 60*60*10;//1 min
         let date =new Date().toString();
         if((Date.parse(date)- Date.parse(sessionTime))/1000 >= duration)
         {
+           // alert();
             this.resetSession();
         }
     }

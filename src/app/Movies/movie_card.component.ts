@@ -22,11 +22,7 @@ import { Router, ActivatedRoute } from '@angular/router';
         background-size: cover;
         background-position: top left;
       }
-      .movie-card {
-        min-height: 100px;
-        font-size: 18px;
-        margin-top: 30px;
-      }
+      
       .title {
         width: 85%;
       }
@@ -42,6 +38,18 @@ import { Router, ActivatedRoute } from '@angular/router';
       .genre span {
         display: inline;
       }
+    
+      @media all and (max-width: 800px)and (min-width: 700px)
+  {
+    .image
+    {
+      height:300px;
+    }
+    
+}
+
+
+
     `
   ]
 })

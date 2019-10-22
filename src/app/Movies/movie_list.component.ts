@@ -13,6 +13,7 @@ import { SessionService } from '../common/session.service';
         overflow-y: auto !important;
         width: 100%;
         height: 100vh;
+        
       }
       #main-content {
         height: 92vh;
@@ -24,6 +25,36 @@ import { SessionService } from '../common/session.service';
         font-size: 18px;
         margin-top: 30px;
       }
+
+ 
+      
+@media all and (max-width: 800px)
+ {
+   #movie-list{
+   padding: 20px 3% 100px 3%;
+   overflow-y: hidden !important;
+   overflow: hidden;
+   height:auto  !important;
+   margin-top: 18%;
+   }
+#main-content
+{
+ width:100% !important;
+ margin-left: 3% !important;
+ 
+}
+
+}
+
+
+@media all and (max-width: 600px)
+{
+  .movie-card
+  {
+    width:49.5% !important;
+    margin-top:30px;
+  }
+}
     `
   ]
   // , styleUrls: ['./movie_streaming_app.component.css']

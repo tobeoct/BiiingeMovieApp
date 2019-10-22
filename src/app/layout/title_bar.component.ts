@@ -13,7 +13,17 @@ import { ActivatedRoute, Router } from '@angular/router';
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
         padding: 20px 5% 20px 5%;
       }
+      #fav
+      {
+        transition: background 0.3s ease-in,color 0.3s ease-in;
+      }
+#fav:focus
+{
+  background:#f2c94c !important;
+  color:#222222 !important;
+  font-weight:bold !important;
 
+}
       #title-bar h4 {
         position: relative;
       }
@@ -28,6 +38,23 @@ import { ActivatedRoute, Router } from '@angular/router';
         margin-top: 5px;
         background: #f2c94c;
       }
+      #additional
+      {
+        display:none;
+      }
+      @media all and (max-width: 800px)
+{
+  #title-bar
+  {
+    position:fixed !important;
+    top:50px;
+    z-index:4;
+  }
+  #additional
+  {
+    display:block;
+  }
+}
     `
   ]
 })
@@ -37,11 +64,11 @@ export class TitleBarComponent {
   {
     //this.title = this.session.getPage();
     this.title= this.route.snapshot.params['page'];
-    router.events.subscribe((val) => {
+   // router.events.subscribe((val) => {
       // see also 
-      let page =this.route.snapshot.params['page'];
-      this.title=this.session.titleCase(page===undefined||page===null?"All":page).toUpperCase();
-  });
+       let page =this.route.snapshot.params['page'];
+      this.title=this.session.titleCase(page===undefined||page===null?"Home":page).toUpperCase();
+  //});
   }
  
   

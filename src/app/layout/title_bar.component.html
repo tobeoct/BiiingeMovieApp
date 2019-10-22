@@ -1,9 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div id="title-bar" class="row bg-grey underline">
-  <div class="col-md-4 strip">
+  <div class="col-md-4 col-sm-4 col-xs-4 strip">
     <h4 class="title-underlined">
       <b>{{ title }}</b>
     </h4>
   </div>
-  <div class="col-md-8"></div>
+  <div class="col-md-8 col-sm-8 col-xs-8 strip" style="text-align: right !important;">
+    <div class="row strip max-width inline" id="additional">
+      <div ><button id="fav" class="button button-yellow" style="margin:0 !important" (click)="router.navigate(['/movies/favourite'])">FAVOURITES</button></div>
+      <div><button class="button" style="margin:0 0 0 20px !important; border-color: transparent;" (click)="router.navigate(['/movies/logout'])">LOGOUT</button></div>
+    </div>
+    
+  </div>
 </div>
