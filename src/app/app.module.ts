@@ -1,7 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 import { MovieStreamingAppComponent } from './movie_streaming_app.component';
 import { NavBarComponent } from './layout/navbar.component';
 import { TitleBarComponent } from './layout/title_bar.component';
@@ -15,6 +20,8 @@ import { appRoutes } from '../routes';
 import { LoginComponent } from './User/logincomponent';
 import { AuthService } from './common/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SessionService } from './common/session.service';
 
 @NgModule({
   declarations: [
@@ -27,8 +34,11 @@ import { HttpClientModule } from '@angular/common/http';
     MovieDetailsComponent,
     LoginComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes), HttpClientModule],
-  providers: [MovieService, ToastrService, AuthService],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), HttpClientModule, ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'biiinge'),
+ 	AngularFirestoreModule, AngularFireAuthModule, 
+   AngularFireStorageModule,AngularFireDatabaseModule],
+  providers: [MovieService, ToastrService, AuthService, SessionService],
   bootstrap: [
     MovieStreamingAppComponent,
     NavBarComponent,

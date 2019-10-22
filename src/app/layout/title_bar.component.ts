@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { SessionService } from '../common/session.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-title-bar',
@@ -30,5 +32,17 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   ]
 })
 export class TitleBarComponent {
-  title = 'JUST FOR YOU';
+  title:string;
+  constructor(private session:SessionService, private route:ActivatedRoute, private router: Router)
+  {
+    //this.title = this.session.getPage();
+    this.title= this.route.snapshot.params['page'];
+    router.events.subscribe((val) => {
+      // see also 
+      let page =this.route.snapshot.params['page'];
+      this.title=this.session.titleCase(page===undefined||page===null?"All":page).toUpperCase();
+  });
+  }
+ 
+  
 }

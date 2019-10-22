@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-
+import {SessionService} from "../common/session.service";
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-side-navbar',
   templateUrl: './side_navbar.component.html',
@@ -33,24 +34,30 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SideNavBarComponent {
   navLinks: any;
+  page:any;
   @Output() onLinkClick: EventEmitter<any>;
-  constructor() {
+  constructor(private session: SessionService, private router: Router, private route: ActivatedRoute) {
     this.onLinkClick = new EventEmitter();
     this.navLinks = [
-      { title: 'For You', url: '/for-you', isActive: true },
-      { title: 'New Releases', url: '/new-releases' },
-      { title: 'Trending', url: '/trending' },
+      { title: 'Home', url: '/home', isActive: true },
       { title: 'Favourites', url: '/favourites' },
-      { title: 'Coming Soon', url: '/coming-soon' }
+      { title: 'Logout', url: '/logout' }
     ];
+    this.page= this.route.snapshot.params['page'];
+    this.handleOnClick(session.titleCase(this.page));
   }
   handleOnClick = data => {
+    let url ="";
     this.navLinks.map(link => {
       link.isActive = false;
       if (link.title === data) {
+        this.session.setPage(data);
+        url = link.url;
         link.isActive = true;
       }
       return link;
     });
+    this.router.navigate(['movies'+url]);
+
   }
 }

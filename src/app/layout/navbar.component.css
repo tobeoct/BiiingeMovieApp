@@ -23,10 +23,11 @@
   border-radius: 30px;
   width: 20px;
   height: 20px;
-  background: url("../../assets/profile.jpg");
+  
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   margin: auto;
   margin-top: 7.5px;
+  cursor: pointer;
 }

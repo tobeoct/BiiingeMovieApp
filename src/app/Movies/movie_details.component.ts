@@ -66,6 +66,8 @@ export class MovieDetailsComponent {
   title = 'biiinge';
   // @Input()
   movieDetails: any;
+  related:any;
+  page:any;
   constructor(
     private movieService: MovieService,
     private route: ActivatedRoute,
@@ -78,18 +80,76 @@ export class MovieDetailsComponent {
     if (!this.authService.isAuthenticated()) {
       this.router.navigate(['login']);
     }
-    this.movieDetails = this.movieService.getMovie(
-      this.route.snapshot.params['id']
-    );
+    this.page=this.route.snapshot.params['page'];
+    this.movieService.getMovie( this.route.snapshot.params['id'])
+    .subscribe(e=>{
+       this.movieDetails={
+            id: e.id,
+              title: e.data()['title'],
+              year: e.data()['year'],
+              starring:e.data()['starring'],
+              awards: e.data()['awards'],
+              director: e.data()['director'],
+              plot:e.data()['plot'],
+              time: e.data()['time'],
+              placeholderScene:e.data()['placeholderScene'],
+              video: e.data()['video'],
+              rating: e.data()['rating'],
+              genres:e.data()['genres'],
+              imageUrl: e.data()['imageUrl'],
+              isFavourite: e.data()['isFavourite'],
+              isPlayingVideo: e.data()['isPlayingVideo'],
+              related: e.data()['related']
+            
+          };
+          this.movieService.searchRelated(this.movieDetails.genres[0]).subscribe(data=>{
+            
+            this.related = data.map(e => {
+             
+              return {
+                id: e.payload.doc.id,
+                  title: e.payload.doc.data()['title'],
+                  year: e.payload.doc.data()['year'],
+                  starring:e.payload.doc.data()['starring'],
+                  awards: e.payload.doc.data()['awards'],
+                  director: e.payload.doc.data()['director'],
+                  plot:e.payload.doc.data()['plot'],
+                  time: e.payload.doc.data()['time'],
+                  placeholderScene:e.payload.doc.data()['placeholderScene'],
+                  video: e.payload.doc.data()['video'],
+                  rating: e.payload.doc.data()['rating'],
+                  genres:e.payload.doc.data()['genres'],
+                  imageUrl: e.payload.doc.data()['imageUrl'],
+                  isFavourite: e.payload.doc.data()['isFavourite'],
+                  isPlayingVideo: e.payload.doc.data()['isPlayingVideo'],
+                  related: e.payload.doc.data()['related']
+                
+              };
+            
+            }).filter(movie=>movie.id!=this.movieDetails.id)
+           });
+           //this.related = this.related.filter(movie=>movie.id!=this.movieDetails.id);
+    }
+      );
+    
   }
-  addToFavourites(data) {
-    // this.onWatch.emit(data + ' added to favourites');
-    this.movieService.addToFavourite(data);
+  isFavourite=(id:number)=>{
+    return this.movieService.isFavourite(id,this.movieDetails.isFavourite);
+  }
+  addToFavourites = (id) => {
+    
+   this.movieDetails.isFavourite=!this.movieDetails.isFavourite;
+          this.movieService.update_Movie(id,this.movieDetails);
+          this.movieService.addToFavourite(id,this.movieDetails.isFavourite,this.movieDetails.title);
+    
+   
   }
   handleOnLinkClicked(data) {
     alert(data);
   }
   playVideo(id: number) {
-    this.movieService.playVideo(id);
+    this.movieDetails.isPlayingVideo = !this.movieDetails.isPlayingVideo;
+        this.movieService.playVideo(this.movieDetails.isPlayingVideo,this.movieDetails.title);
   }
+
 }

@@ -58,6 +58,7 @@ img {
   font-size: 0.8em;
   padding: 7.5px 10px 7.5px 10px;
   border-radius: 5px;
+  font-weight: bold;
 }
 .button-default {
   background: #f30c4e;
@@ -90,6 +91,8 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  color:#222222;
+  font-weight: bold;
   justify-items: center;
   align-content: center;
 }
@@ -142,4 +145,8 @@ img {
 }
 .overflow-scroll::-webkit-scrollbar {
   display: none;
+}
+input
+{
+  color:#FFFFFF !important;
 }

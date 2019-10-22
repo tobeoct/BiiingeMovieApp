@@ -1,5 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MovieService } from './shared/movie.service';
+import { AuthService } from '../common/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-movie-card',
@@ -44,16 +47,35 @@ import { MovieService } from './shared/movie.service';
 })
 export class MovieCardComponent {
   @Input() movie: any;
-  @Output() onWatch: EventEmitter<any>;
-  constructor(private movieService:MovieService) {
-    this.onWatch = new EventEmitter<any>();
+  page:any;
+  isAuthenticated:boolean;
+  constructor(private movieService:MovieService, private authService:AuthService, private router: Router, private route:ActivatedRoute) {
     // this.movie = new Object();
+    router.events.subscribe((val) => {
+      // see also 
+       this.page= this.route.snapshot.params['page'];
+    });
   }
-  ngOnChanges() {
-    // console.log(this.movie == null ? 'null' : this.movie.genres);
+  ngOnInit()
+  {
+    this.isAuthenticated=this.authService.isAuthenticated();
+    this.page= this.route.snapshot.params['page'];
+   if(this.movie.isFavourite&& !this.movieService.ifInFavourite(this.movie.id))
+   {
+     this.movieService.addToFavourite(this.movie.id,this.movie.isFavourite,this.movie.title,false);
+   }
   }
-  addToFavourites(data) {
-    //this.onWatch.emit(data + ' added to favourites');
-   this.movieService.addToFavourite(data);
+
+  isFavourite=(id:number)=>{
+    return this.movieService.isFavourite(id,this.movie.isFavourite);
+  }
+  addToFavourites = (id) => {
+    
+          this.movie.isFavourite=!this.movie.isFavourite;
+          this.movieService.update_Movie(id,this.movie);
+          this.movieService.addToFavourite(id,this.movie.isFavourite,this.movie.title);
+  
+   
   }
 }
+//||(movie != null && movie != undefined) 

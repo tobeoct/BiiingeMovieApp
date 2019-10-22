@@ -1,3 +1,4 @@
+<app-side-navbar ></app-side-navbar>
 <div
   class="row max-width strip"
   id="movie-details"
@@ -7,7 +8,7 @@
   }"
 >
   <div class="gradient-overlay"></div>
-  <a href="/movies/">
+  <a href="/movies/{{page}}">
     <div
       style="position: absolute; top:10%; left:3%; z-index:5; cursor: pointer;"
     >
@@ -87,7 +88,7 @@
         <div class="row">
           <div
             class="inline favourite"
-            *ngIf="!movieDetails.isFavourite"
+            *ngIf="!isFavourite(movieDetails.id)"
             (click)="addToFavourites(movieDetails.id)"
           >
             <div class="button button-rounded text-center">
@@ -97,7 +98,7 @@
           </div>
           <div
             class="inline favourite"
-            *ngIf="movieDetails.isFavourite"
+            *ngIf="isFavourite(movieDetails.id)"
             (click)="addToFavourites(movieDetails.id)"
           >
             <div
@@ -115,9 +116,9 @@
           <div id="related-list" class="overflow-scroll">
             <div
               class="related-item"
-              *ngFor="let detail of movieDetails.related"
+              *ngFor="let detail of related"
             >
-              <a href="/movies/{{ detail.id }}">
+              <a href="/movies/{{page}}/{{ detail.id }}">
                 <div
                   id="image"
                   [ngStyle]="{
