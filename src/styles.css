@@ -150,3 +150,26 @@ input
 {
   color:#FFFFFF !important;
 }
+.rotate
+{
+  position:absolute;
+  width:100vw;
+  height:100vh;
+  display:none;
+  background:#111111;
+  top:0;
+  text-align:center;
+}
+.rotate div
+{
+  position:absolute;
+  top:40%;
+  
+}
+@media all and (max-width:600px)
+{
+.rotate
+  {
+    display:block;
+  }
+}
