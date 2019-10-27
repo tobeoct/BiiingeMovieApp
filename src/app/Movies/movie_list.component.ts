@@ -12,7 +12,7 @@ import { SessionService } from '../common/session.service';
         padding: 20px 2.5% 200px 0.5%;
         overflow-y: auto !important;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         
       }
       #main-content {
@@ -25,20 +25,13 @@ import { SessionService } from '../common/session.service';
         font-size: 18px;
         margin-top: 30px;
       }
-@media all and (max-width: 600px)
-{
-  .movie-card
-  {
-    width:49.5% !important;
-    margin-top:30px;
-  }
-}
+
 @media all and (max-width: 800px)
  {
    #movie-list{
    padding: 20px 3% 100px 3%;
-   overflow-y: auto !important;
-   height:auto  !important;
+   overflow: auto !important;
+   height:94vh  !important;
    margin-top: 18%;
    }
 #main-content
@@ -48,6 +41,14 @@ import { SessionService } from '../common/session.service';
  
 }
 
+}
+@media all and (max-width: 600px)
+{
+  .movie-card
+  {
+    width:49.5% !important;
+    margin-top:30px;
+  }
 }
     `
   ]
