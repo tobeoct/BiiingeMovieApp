@@ -25,9 +25,18 @@ import { SessionService } from '../common/session.service';
         font-size: 18px;
         margin-top: 30px;
       }
-
- 
       
+
+
+
+@media all and (max-width: 600px)
+{
+  .movie-card
+  {
+    width:49.5% !important;
+    margin-top:30px;
+  }
+}
 @media all and (max-width: 800px)
  {
    #movie-list{
@@ -44,16 +53,6 @@ import { SessionService } from '../common/session.service';
  
 }
 
-}
-
-
-@media all and (max-width: 600px)
-{
-  .movie-card
-  {
-    width:49.5% !important;
-    margin-top:30px;
-  }
 }
     `
   ]
