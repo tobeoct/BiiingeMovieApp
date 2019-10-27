@@ -46,7 +46,7 @@ import { SessionService } from '../common/session.service';
 {
   .movie-card
   {
-    width:49.5% !important;
+    width:49.75% !important;
     margin-top:30px;
   }
 }
