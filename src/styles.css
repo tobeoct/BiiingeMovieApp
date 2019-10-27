@@ -166,10 +166,14 @@ input
   top:40%;
   
 }
-@media all and (max-width:600px)
+@media all and (max-width:800px)
 {
 .rotate
   {
-    display:block;
+    display:none;
+  }
+  #side-navbar
+  {
+  display:none;
   }
 }
