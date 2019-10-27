@@ -25,10 +25,6 @@ import { SessionService } from '../common/session.service';
         font-size: 18px;
         margin-top: 30px;
       }
-      
-
-
-
 @media all and (max-width: 600px)
 {
   .movie-card
@@ -41,8 +37,7 @@ import { SessionService } from '../common/session.service';
  {
    #movie-list{
    padding: 20px 3% 100px 3%;
-   overflow-y: hidden !important;
-   overflow: hidden;
+   overflow-y: auto !important;
    height:auto  !important;
    margin-top: 18%;
    }
